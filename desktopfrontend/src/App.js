@@ -4,6 +4,8 @@ import { Chat } from 'stream-chat-react'
 import Cookies from 'universal-cookie'
 
 import Auth from './components/Auth'
+import Sidebar from './components/Sidebar'
+import Channel from './components/Channel'
 
 import 'stream-chat-react/dist/css/index.css'
 import './App.css'
@@ -31,7 +33,12 @@ if (authToken) {
 function App() {
   if (authToken) {
     return (
-      <h1>Logged in</h1>
+      <div className="app-wrapper">
+        <Chat client={client} theme="team dark">
+          <Sidebar />
+          <Channel />
+        </Chat>
+      </div>
     );
   }
   else {

@@ -48,3 +48,9 @@
   justify-content: center;
   background-color: rgb(27, 27, 27);
 }
+.app-wrapper {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.33) 0px 1px 4px 0px;
+}
