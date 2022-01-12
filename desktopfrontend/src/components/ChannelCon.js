@@ -1,23 +1,27 @@
 import React from 'react'
 import { Channel, MessageTeam, useChatContext, useChannelStateContext } from 'stream-chat-react'
 
-import ChannelInner from './ChannelInner';
+import ChannelInner from './ChannelInner'
+import CreateChannel from './CreateChannel'
+import EditChannel from './EditChannel'
 
 const ChannelCon = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType }) => {
-    const { channel } = useChannelStateContext();
+    //console.log(isCreating)
+    //const { channel } = useChannelStateContext();
     if (isEditing) {
         return (
             <div className="w-full">
-                {//<EditChannel setIsEditing={setIsEditing} />
+                {<EditChannel setIsEditing={setIsEditing} />
                 }
             </div> 
         )
     }
 
     if (isCreating) {
+        //console.log("isCreating is true")
         return (
             <div className="w-full">
-                {//<CreateChannel createType={createType} setIsCreating={setIsCreating} />
+                {<CreateChannel createType={createType} setIsCreating={setIsCreating} />
                 }
             </div>
         )

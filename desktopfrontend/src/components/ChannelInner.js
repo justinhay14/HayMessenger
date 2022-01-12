@@ -6,24 +6,6 @@ export const GiphyContext = React.createContext({})
 const ChannelInner = ({ setIsEditing }) => {
   const [giphyState, setGiphyState] = useState(false)
   const { sendMessage } = useChannelActionContext()
-  
-  const overrideSubmitHandler = (message) => {
-    if (sendMessage) {
-        sendMessage(updatedMessage)
-        setGiphyState(false);
-    }
-    let updatedMessage = {
-        parent_id: message.parent?.id,
-        parent: message.parent,
-        text: message.text,
-        attachments: message.attachments,
-        mentioned_users: message.mentioned_users,
-    }
-    
-    if (giphyState) {
-      updatedMessage = { ...updatedMessage, text: `/giphy ${message.text}` }
-    }
-  }
 
   return (
     <GiphyContext.Provider value={{ giphyState, setGiphyState }}>
@@ -31,7 +13,7 @@ const ChannelInner = ({ setIsEditing }) => {
         <Window>
           <TeamChannelHeader setIsEditing={setIsEditing} />
           <MessageList />
-          <MessageInput overrideSubmitHandler={overrideSubmitHandler} />
+          <MessageInput />
         </Window>
         <Thread />
       </div>

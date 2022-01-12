@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChannelList1 = ({children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer}) => {
+const ChannelList1 = ({children, error = false, loading, type, setIsCreating, setCreateType, setIsEditing, setToggleContainer}) => {
     if (error) {
         return type === 'team' ? (
             <div className="bg-gray-700 w-40 flex flex-row text-white">
@@ -28,10 +28,14 @@ const ChannelList1 = ({children, error = false, loading, type, isCreating, setIs
                     {type === 'team' ? 'Channels' : 'Direct Messages'}
                 </p>
                 <button className="px-2" onClick={() => {
-                    setCreateType(type);
-                    setIsCreating((prevState) => !prevState);
-                    setIsEditing(false);
-                    if(setToggleContainer) setToggleContainer((prevState) => !prevState) 
+                    //console.log("made it here", type)
+                    setCreateType(type)
+                    setIsCreating((prevState) => !prevState)
+                    //setIsCreating(true)
+                    setIsEditing(false)
+                    if (setToggleContainer) {
+                        setToggleContainer((prevState) => !prevState)
+                    }
                 }}>+</button>
             </div>
             {children}

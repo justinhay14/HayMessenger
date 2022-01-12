@@ -44,7 +44,13 @@ function App() {
             setCreateType={setCreateType}
             setIsEditing={setIsEditing}
           />
-          <ChannelCon />
+          <ChannelCon 
+            isCreating={isCreating}
+            setIsCreating={setIsCreating}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            createType={createType}
+          />
         </Chat>
       </div>
     );
